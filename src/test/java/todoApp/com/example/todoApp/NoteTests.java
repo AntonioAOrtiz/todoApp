@@ -91,9 +91,53 @@ class NoteTests {
 		note1.setEstimatedCompletion(LocalDate.parse("2022-12-14"));
 		
 		assertTrue(!data.isEqual(note1.getEstimatedCompletion()));
-		
-		
 	}
+	
+	@Test
+	void isNoteCompleted()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-12"), "link","Germán" ,Priority.MEDIUM);
+		assertTrue(NoteData.isCompleted(note));
+	}
+	
+	@Test
+	void isNoteCompletedShoulReturnFalse()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		assertTrue(!NoteData.isCompleted(note));
+	}
+	
+	@Test
+	void isNoteCurrent()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.parse("2022-08-12"), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		assertTrue(NoteData.isCurrent(note));
+	}
+	
+	@Test
+	void isNoteCurrentShouldReturnFalse()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		assertTrue(!NoteData.isCurrent(note));
+	}
+	
+	@Test
+	void isNoteFuture()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.parse("2022-11-12"), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		assertTrue(NoteData.isFuture(note));
+	}
+	
+	@Test
+	void isNoteFutureShouldReturnFalse()
+	{
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.parse("2022-09-12"), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		assertTrue(!NoteData.isFuture(note));
+	}
+	
+	
+	
+	
 	
 	
 

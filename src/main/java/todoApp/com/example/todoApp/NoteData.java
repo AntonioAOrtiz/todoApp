@@ -1,5 +1,6 @@
 package todoApp.com.example.todoApp;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -44,8 +45,35 @@ public class NoteData {
 		}catch(NoSuchElementException e){
 			return null;
 		}
-		
-		
-		
 	}
+	
+	public static boolean isCompleted(Note note)
+	{
+		return note.getDateCompletion() != null;
+	}
+	
+	public static boolean isFuture(Note note)
+	{
+		return note.getDateCreation().isAfter(LocalDate.now());
+	}
+	
+	public static boolean isCurrent(Note note)
+	{
+		return note.getDateCreation().isBefore(LocalDate.now()) && !isCompleted(note);
+	}
+	
+	public void displayNotes()
+	{
+		List<Note> completed = notes.stream().filter(note -> isCompleted(note)).toList();
+		List<Note> current = notes.stream().filter(note -> isCurrent(note)).toList();
+		List<Note> future = notes.stream().filter(note -> isFuture(note)).toList();
+		System.out.println("COMPLETED");
+		for(Note note : completed) System.out.println(note);
+		System.out.println("CURRENT");
+		for(Note note : current) System.out.println(note);
+		System.out.println("FUTURE ");
+		for(Note note : future) System.out.println(note);
+	}
+	
+	
 }
