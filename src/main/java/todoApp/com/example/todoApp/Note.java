@@ -67,7 +67,9 @@ public class Note {
 	}
 
 	public void setEstimatedCompletion(LocalDate estimatedCompletion) {
-		this.estimatedCompletion = estimatedCompletion;
+		if(estimatedCompletion.isAfter(dateCreation)) {
+			this.estimatedCompletion = estimatedCompletion;
+		}
 	}
 
 	public LocalDate getDateCompletion() {

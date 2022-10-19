@@ -65,7 +65,34 @@ class NoteTests {
 		
 		notedata.create(note1);
 		notedata.create(note1);
-		System.out.println(notedata.getNotes().size());
+	}
+	
+	@Test
+	void estimatedCannotBeSmallerthanCreation(){
+		
+		Note note1 = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-13"), "link","Germán" ,Priority.MEDIUM);
+		
+		LocalDate data = LocalDate.from(note1.getEstimatedCompletion());
+		
+		note1.setEstimatedCompletion(LocalDate.parse("2022-03-10"));
+		
+		assertTrue(data.isEqual(note1.getEstimatedCompletion()));
+		
+		
+	}
+	
+	@Test
+	void estimatedCannotBeSmallerthanCreation2(){
+		
+		Note note1 = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-13"), "link","Germán" ,Priority.MEDIUM);
+		
+		LocalDate data = LocalDate.from(note1.getEstimatedCompletion());
+		
+		note1.setEstimatedCompletion(LocalDate.parse("2022-12-14"));
+		
+		assertTrue(!data.isEqual(note1.getEstimatedCompletion()));
+		
+		
 	}
 	
 	
