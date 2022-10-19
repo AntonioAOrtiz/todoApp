@@ -27,4 +27,12 @@ public class NoteData {
 	{
 		return notes;
 	}
+	
+	public Note read(int id) {
+		
+		
+		
+		return null;
+		
+	}
 }
