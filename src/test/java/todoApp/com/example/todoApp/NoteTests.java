@@ -57,6 +57,17 @@ class NoteTests {
 		assertTrue(note == null);
 	}
 	
+	@Test
+	void test1() {
+		
+		Note note1 = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-13"), "link","Germán" ,Priority.MEDIUM);
+		
+		
+		notedata.create(note1);
+		notedata.create(note1);
+		System.out.println(notedata.getNotes().size());
+	}
+	
 	
 
 }

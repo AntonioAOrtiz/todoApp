@@ -3,6 +3,7 @@ package todoApp.com.example.todoApp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class NoteData {
 	private List<Note> notes;
@@ -13,11 +14,18 @@ public class NoteData {
 	}
 	
 	public void create(Note note) {
-		notes.add(note);
+		Optional<Note> opt = notes.stream().filter(note2 -> note2.getId() == note.getId()).findFirst();
+		if(opt.isEmpty()){
+			notes.add(note);
+		}
+		else {
+			int index = notes.indexOf(opt.get());
+			notes.set(index, note);
+		}
 	}
 	
 	public void update(Note note) {
-		
+		create(note);
 	}
 	
 	public void delete(Note note) {
