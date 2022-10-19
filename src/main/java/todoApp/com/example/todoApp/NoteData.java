@@ -1,19 +1,25 @@
 package todoApp.com.example.todoApp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoteData {
 	private List<Note> notes;
 	
-	public void create(Note notes) {
+	public NoteData()
+	{
+		notes = new ArrayList<Note>();
+	}
+	
+	public void create(Note note) {
+		notes.add(note);
+	}
+	
+	public void update(Note note) {
 		
 	}
 	
-	public void update(Note notes) {
-		
-	}
-	
-	public void delete(Note notes) {
+	public void delete(Note note) {
 		
 	}
 	
