@@ -20,7 +20,7 @@ public class NoteData {
 	}
 	
 	public void delete(Note note) {
-		
+		notes.remove(note);
 	}
 	
 	public List<Note> getNotes()
