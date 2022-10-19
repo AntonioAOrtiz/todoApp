@@ -23,6 +23,16 @@ class NoteTests {
 		
 	}
 	
+	@Test
+	void NoteDeleteTest()
+	{
+		Note note1 = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-13"), "link","Germán" ,Priority.MEDIUM);
+		notedata.create(note1);
+		notedata.delete(note1);
+		
+		assertTrue(!notedata.getNotes().contains(note1));
+	}
+	
 	
 
 }
