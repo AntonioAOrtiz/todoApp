@@ -35,7 +35,7 @@ class NoteTests {
 	
 	
 	@Test
-	void NoteReadTest() {
+	void NoteReadSuccesfulTest() {
 		Note note1 = new Note(1, "reunión", "reunion de trabajo", LocalDate.now(), LocalDate.parse("2022-12-12"), LocalDate.parse("2022-12-13"), "link","Germán" ,Priority.MEDIUM);
 		
 		

@@ -30,9 +30,7 @@ public class NoteData {
 	
 	public Note read(int id) {
 		
-		
-		
-		return null;
+		return notes.stream().filter(note -> note.getId() == id).findFirst().get();
 		
 	}
 }
