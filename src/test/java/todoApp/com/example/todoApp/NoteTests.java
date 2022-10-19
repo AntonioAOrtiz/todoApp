@@ -136,7 +136,23 @@ class NoteTests {
 	}
 	
 	
+	@Test
+	void priorityTest() {
+		Note note = new Note(1, "reunión", "reunion de trabajo", LocalDate.parse("2022-09-12"), LocalDate.parse("2022-12-12"), null, "link","Germán" ,Priority.MEDIUM);
+		Priority priority = note.getPriority();
+		
+		note.setPriority(Priority.HIGH);
+		
+		Note note2 = notedata.read(1);
+		
+		System.out.println(priority.toString());
+		System.out.println(note.getPriority().toString());
 	
+		
+		assertTrue(priority != note.getPriority());
+		
+		
+	}
 	
 	
 	
