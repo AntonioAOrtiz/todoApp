@@ -11,11 +11,11 @@ public class Note {
 	private LocalDate estimatedCompletion;
 	private LocalDate dateCompletion;
 	private String link;
-	private List<String> mentions;
+	private String mentions;
 	private Priority priority;
 	
 	public Note(int id, String description, String text, LocalDate dateCreation, LocalDate estimatedCompletion,
-			LocalDate dateCompletion, String link, List<String> mentions, Priority priority) {
+			LocalDate dateCompletion, String link, String mentions, Priority priority) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -27,6 +27,8 @@ public class Note {
 		this.mentions = mentions;
 		this.priority = priority;
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -84,11 +86,11 @@ public class Note {
 		this.link = link;
 	}
 
-	public List<String> getMentions() {
+	public String getMentions() {
 		return mentions;
 	}
 
-	public void setMentions(List<String> mentions) {
+	public void setMentions( String mentions) {
 		this.mentions = mentions;
 	}
 
