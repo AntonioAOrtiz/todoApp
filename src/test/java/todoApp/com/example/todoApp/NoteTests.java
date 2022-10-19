@@ -49,6 +49,14 @@ class NoteTests {
 		
 	}
 	
+	@Test
+	void NoteReadFailedTest() {
+		
+		Note note = notedata.read(-1);
+		
+		assertTrue(note == null);
+	}
+	
 	
 
 }
